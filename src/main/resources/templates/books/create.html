@@ -5,5 +5,33 @@
 
 <header th:replace="fragments :: header"></header>
 
+<form method="post">
+    <div class="form-group">
+        <label>Title
+            <input th:field="${book.title}" class="form-control">
+        </label>
+        <p class="error" th:errors="${book.title}"></p>
+    </div>
+    <div class="form-group">
+        <label>Author
+            <input th:field="${book.author}" class="form-control">
+        </label>
+        <p class="error" th:errors="${book.author}"></p>
+    </div>
+    <div class="form-group">
+        <label>Put Into Shelf
+            <select th:field="${book.type}">
+                <option th:each="type : ${types}"
+                        th:value="${type}"
+                        th:text="${type.displayName}"
+                ></option>
+            </select>
+        </label>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-success">
+    </div>
+</form>
+
 </body>
 </html>
