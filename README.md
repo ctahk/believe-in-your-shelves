@@ -1,10 +1,10 @@
 # Believe in Your Shelves
 
-##Have a personal reading goal per year?
+## Have a personal reading goal per year?
 
 Keep track of what books you would like to read and what books you've already checked off your list.
 
-###Features
+### Features
 
 **Shelving:** Drag and drop your books from your will read shelf to your read shelf.
 
