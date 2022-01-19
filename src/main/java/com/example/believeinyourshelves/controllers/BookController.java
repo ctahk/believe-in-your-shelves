@@ -1,6 +1,5 @@
 package com.example.believeinyourshelves.controllers;
 
-import com.example.believeinyourshelves.data.BookData;
 import com.example.believeinyourshelves.data.BookRepository;
 import com.example.believeinyourshelves.models.Book;
 import com.example.believeinyourshelves.models.BookType;
@@ -21,14 +20,12 @@ public class BookController {
 
     @GetMapping
     public String displayBooks(Model model) {
-        model.addAttribute("title", "Books");
         model.addAttribute("books", bookRepository.findAll());
         return "books/index";
     }
 
     @GetMapping("create")
     public String displayAddBooksForm(Model model) {
-        model.addAttribute("title", "Add Books");
         model.addAttribute(new Book());
         model.addAttribute("types", BookType.values());
         return "books/create";
@@ -38,7 +35,6 @@ public class BookController {
     public String processAddBooksForm(@ModelAttribute @Valid Book newBook,
                                          Errors errors, Model model) {
         if(errors.hasErrors()) {
-            model.addAttribute("title", "Add Books");
             return "books/create";
         }
 
@@ -48,7 +44,6 @@ public class BookController {
 
     @GetMapping("delete")
     public String displayDeleteBooksForm(Model model) {
-        model.addAttribute("title", "Delete Book");
         model.addAttribute("books", bookRepository.findAll());
         return "books/delete";
     }
